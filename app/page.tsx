@@ -1,6 +1,6 @@
 "use client"
 import { cevaplar } from "@/data";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function Home() {
   const [showDescription, setShowDescription] = useState(false);
@@ -9,6 +9,28 @@ export default function Home() {
   const [xCordinate, setXCordinate] = useState(45)
   const [yCordinate, setYCordinate] = useState(50)
 
+  React.useEffect(() => {
+    // Yatay (X) kaydırmayı engelle
+    function preventXScroll() {
+      window.addEventListener('scroll', function () {
+        window.scrollTo(0, window.pageYOffset);
+      });
+    }
+
+    // Dikey (Y) kaydırma kontrolü
+    function keepYScroll() {
+      window.addEventListener('scroll', function () {
+        // Yatay (X) kaydırma olmadan mevcut X pozisyonunu koru
+        if (window.pageXOffset !== 0) {
+          window.scrollTo(window.pageXOffset, window.pageYOffset);
+        }
+      });
+    }
+
+    // Kullanım
+    preventXScroll(); // Yatay (X) kaydırmayı engelle
+    keepYScroll(); // Dikey (Y) kaydırmayı koru
+  }, [])
   const getRandomNumber = () => {
     const random = Math.floor(Math.random() * cevaplar.length);
     setRandomNumber(random);
@@ -169,31 +191,49 @@ export default function Home() {
           background-color: white;
           opacity: 1;
           transition: background-color 0.8s, transform 0.8s, opacity 0.8s;
+          position: relative;
+          overflow: hidden; /* Eklenen satır */
         }
-
+        
+        .random-btn::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-bottom: 25px solid black;
+          transform: translate(-50%, -50%);
+          transition: transform 0.8s; /* Eklenen satır */
+        }
+        
+        
         .random-btn:hover {
           animation: spin 4s linear infinite;
         }
-
+        
         .random-btn:active {
           transform: scale(0.95);
         }
-
+        
         @keyframes spin {
           0% {
-            transform: scale(1);
+            transform: scale(1)  rotate(0deg);
           }
           100% {
-            transform: scale(1.1);
+            transform: scale(1.1)  rotate(120000deg);
           }
         }
-
+        
+        
         .random-btn:disabled {
           opacity: 0.1;
           cursor: not-allowed;
           transform: scale(1.0);
         }
-
+        
         .random-btn:active {
           transform: scale(0.9);
           animation: none;
