@@ -86,16 +86,36 @@ export default function Home() {
     const randomNum = Math.random(); // 0 ile 1 arasında rastgele bir sayı üretir
 
     if (randomNum < 0.5) {
-      const spaceSound = new Audio("/space.mp3");
-      spaceSound.volume = 0.1;
+      const spaceSound = new Audio("/432.mp3");
+      spaceSound.volume = 0.03;
       spaceSound.play();
     } else {
-      const bellSound = new Audio("/bell.mp3");
-      bellSound.volume = 0.1;
+      const bellSound = new Audio("/fire.mp3");
+      bellSound.volume = 0.03;
       bellSound.play();
     }
-  };
-
+    // if (randomNum < 0.2) {
+    //   const spaceSound = new Audio("/space.mp3");
+    //   spaceSound.volume = 0.01;
+    //   spaceSound.play();
+    // } else if (randomNum < 0.4) {
+    //   const bellSound = new Audio("/432.mp3");
+    //   bellSound.volume = 0.03;
+    //   bellSound.play();
+    // } else if (randomNum < 0.6) {
+    //   const bellSound = new Audio("/fire.mp3");
+    //   bellSound.volume = 0.03;
+    //   bellSound.play();
+    // } else if (randomNum < 0.8) {
+    //   const bellSound = new Audio("/ikigai.mp3");
+    //   bellSound.volume = 0.02;
+    //   bellSound.play();
+    // } else {
+    //   const bellSound = new Audio("/focus.mp3");
+    //   bellSound.volume = 0.02;
+    //   bellSound.play();
+    // }
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="area"></div>
@@ -118,7 +138,7 @@ export default function Home() {
       {/* Rastgele Tavsiye */}
       <div className="centered-container-text">
         <h2 className={showDescription ? "description animated" : "description"}>
-          {cevaplar[randomNumber]?.toUpperCase()}
+          {showDescription && cevaplar[randomNumber]?.toUpperCase()}
         </h2>
       </div>
 
