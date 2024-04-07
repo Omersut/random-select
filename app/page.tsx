@@ -15,8 +15,8 @@ export default function Home() {
   };
 
   const getRandomNumberForBtn = () => {
-    const randomx = Math.floor(Math.random() * 51) + 20;
-    const randomy = Math.floor(Math.random() * 51) + 20;
+    const randomx = Math.floor(Math.random() * 61) + 30;
+    const randomy = Math.floor(Math.random() * 61) + 30;
     setYCordinate(randomy);
     setXCordinate(randomx);
   };
@@ -52,24 +52,27 @@ export default function Home() {
       {/* Mobil İçerik */}
       <div className="max-w-5xl w-full items-center justify-between text-sm lg:flex">
         {infoVisibility && (
-          <p className="fixed info left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-            &nbsp;
+          <>
+            <p className="fixed info left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+              &nbsp;
 
-            <code>
-              Bir soru sor... butona Tıkla! Ve buna bir döngü şeklinde devam et.
-            </code>
-          </p>
+              <code>
+                Bir soru sor... butona Tıkla! Ve buna bir döngü şeklinde devam et.
+              </code>
+            </p>
+            <div className="mobile-only fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+              <a
+                className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+                href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <b><em>By / Ö</em></b>
+              </a>
+            </div>
+          </>
         )}
-        <div className="mobile-only fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <b><em>By / Ö</em></b>
-          </a>
-        </div>
+
       </div>
 
       {/* Rastgele Tavsiye */}
@@ -86,9 +89,14 @@ export default function Home() {
 
       {/* Stiller */}
       <style>{`
-        .info {
-         
+        .main {
+         position: relative;
+         overflow: hidden
         }
+        .body {
+          position: relative;
+          overflow: hidden
+         }
 
         .centered-container {
           position: absolute;
