@@ -15,8 +15,8 @@ export default function Home() {
   };
 
   const getRandomNumberForBtn = () => {
-    const randomx = Math.floor(Math.random() * 61) + 30;
-    const randomy = Math.floor(Math.random() * 61) + 30;
+    const randomx = Math.floor(Math.random() * 81) + 10;
+    const randomy = Math.floor(Math.random() * 81) + 10;
     setYCordinate(randomy);
     setXCordinate(randomx);
   };
