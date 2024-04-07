@@ -121,8 +121,9 @@ export default function Home() {
         body {
           position: relative;
           overflow: hidden;
-
-         }
+          max-height: 100vh;
+          max-width: 100vw;       
+        }
 
         .centered-container {
           position: absolute;
