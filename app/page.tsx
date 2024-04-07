@@ -47,8 +47,8 @@ export default function Home() {
       </div>
 
       {/* Rastgele Tavsiye */}
-      <div className="centered-container">
-        <h2 className={showDescription ? 'description animated' : 'description'}>
+      <div className="centered-container ">
+        <h2 className={showDescription ? 'description  animated' : 'description'}>
           {cevaplar.at(randomNumber)?.toUpperCase()}
         </h2>
       </div>
@@ -133,6 +133,11 @@ export default function Home() {
           }
 
           .description {
+            font-size: 1.3em;
+          }
+          .centered-container{
+            width: 100%;
+            padding: 10px;
           }
         }
 
