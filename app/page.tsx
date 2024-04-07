@@ -240,6 +240,9 @@ export default function Home() {
           .info {
             text-align: center;
           }
+          .area{
+            display: none;
+          }
           .code {
             padding: 40px;
           }
