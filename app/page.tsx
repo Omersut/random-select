@@ -19,6 +19,18 @@ export default function Home() {
     const randomy = Math.floor(Math.random() * 81) + 10;
     setYCordinate(randomy);
     setXCordinate(randomx);
+    setTimeout(() => {
+      const randomx = Math.floor(Math.random() * 81) + 10;
+      const randomy = Math.floor(Math.random() * 81) + 10;
+      setYCordinate(randomy);
+      setXCordinate(randomx);
+      setTimeout(() => {
+        const randomx = Math.floor(Math.random() * 81) + 10;
+        const randomy = Math.floor(Math.random() * 81) + 10;
+        setYCordinate(randomy);
+        setXCordinate(randomx);
+      }, 500);
+    }, 1000);
   };
 
 
@@ -48,16 +60,19 @@ export default function Home() {
 
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className=" flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="area">
+      </div>
+
       {/* Mobil İçerik */}
-      <div className="max-w-5xl w-full items-center justify-between text-sm lg:flex">
+      <div className=" max-w-5xl w-full items-center justify-between text-sm lg:flex">
         {infoVisibility && (
           <>
             <p className="fixed info left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
               &nbsp;
 
               <code>
-                Bir soru sor... butona Tıkla! Ve buna bir döngü şeklinde devam et.
+                Bir soru sor... butona Tıkla! Ve buna bir döngü şeklinde devam et...
               </code>
             </p>
             <div className="mobile-only fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
@@ -87,15 +102,26 @@ export default function Home() {
         <button disabled={showDescription} className="random-btn" onClick={handleButtonClick}></button>
       </div>
 
+
       {/* Stiller */}
       <style>{`
         .main {
          position: relative;
-         overflow: hidden
+         overflow: hidden;
+
         }
-        .body {
+        .area{
+          border:5px solid white;
+          position: absolute;
+          top: 15px;
+          bottom:15px;
+          left:15px;
+          right: 15px
+        }
+        body {
           position: relative;
-          overflow: hidden
+          overflow: hidden;
+
          }
 
         .centered-container {
@@ -105,6 +131,8 @@ export default function Home() {
           transform: translate(-50%, -50%);
           text-align: center;
           height: 200px;
+          transition: top 2s, left 2s;
+
         }
 
         .centered-container-text {
@@ -128,8 +156,8 @@ export default function Home() {
         }
 
         .random-btn {
-          width: 150px;
-          height: 150px;
+          width: 130px;
+          height: 130px;
           padding: 10px 20px;
           font-size: 1.5em;
           border: 1px solid white;
