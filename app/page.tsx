@@ -121,8 +121,8 @@ export default function Home() {
         body {
           position: relative;
           overflow: hidden;
-          max-height: 100vh;
-          max-width: 100vw;       
+          max-height: ${window.screen.availHeight}px;
+          max-width: ${window.screen.availWidth}px;       
         }
 
         .centered-container {
