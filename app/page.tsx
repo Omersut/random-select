@@ -8,6 +8,8 @@ export default function Home() {
   const [infoVisibility, setInfoVisibility] = useState(true);
   const [xCordinate, setXCordinate] = useState(45)
   const [yCordinate, setYCordinate] = useState(50)
+  let availableWith = "";
+  let availableHeight = "";
 
   React.useEffect(() => {
     // Yatay (X) kaydırmayı engelle
@@ -26,7 +28,10 @@ export default function Home() {
         }
       });
     }
-
+    if (window != null) {
+      let availableWith = window.screen.availWidth;
+      let availableHeight = window.screen.availHeight;
+    }
     // Kullanım
     preventXScroll(); // Yatay (X) kaydırmayı engelle
     keepYScroll(); // Dikey (Y) kaydırmayı koru
@@ -144,8 +149,8 @@ export default function Home() {
         body {
           position: relative;
           overflow: hidden;
-          max-height: ${window.screen.availHeight}px;
-          max-width: ${window.screen.availWidth}px;       
+          max-height: ${availableHeight}px;
+          max-width: ${availableWith}px;       
         }
 
         .centered-container {
