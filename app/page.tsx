@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function Home() {
   const [showDescription, setShowDescription] = useState(false);
   const [randomNumber, setRandomNumber] = useState<number>(0);
+  const [infoVisibility, setInfoVisibility] = useState(true)
 
   const getRandomNumber = () => {
     const random = Math.floor(Math.random() * (cevaplar.length - 1));
@@ -13,6 +14,7 @@ export default function Home() {
   };
 
   const handleButtonClick = () => {
+    setInfoVisibility(false)
     getRandomNumber();
     setShowDescription(true);
     setTimeout(() => {
@@ -24,15 +26,15 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       {/* Mobil İçerik */}
       <div className="z-10 max-w-5xl w-full items-center justify-between  text-sm lg:flex ">
-        <p className="fixed info left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+        {infoVisibility && <p className="fixed info left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           &nbsp;
           <code className="">
             Bazen harekete geçmene yardımcı olan şey rastgele bir tavsiyedir!
             Kim bilir, belki de bir &quot;Mıyım?&quot; sorusu sorulmuş ve cevabı bulunması gerekiyor.
             &quot;İstifa etmeli miyim?&quot; 🤔 ya da belki de &quot;Yolculuk yapmalı mıyım?&quot; 🌍
-            Aklındaki soruyu belirle, düşün, düşün.. ve şimdi, büyük ve gizemli butona Tıkla!
+            Aklındaki soruyu belirle, düşün, düşün.. ve şimdi, büyük ve gizemli butona Tıkla! Ve buna bir döngü şeklinde devam et.
           </code>
-        </p>
+        </p>}
         <div className="mobile-only fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
           <a
             className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
@@ -66,7 +68,7 @@ export default function Home() {
 
         .centered-container {
           position: absolute;
-          top: 55%;
+          top: 45%;
           left: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
