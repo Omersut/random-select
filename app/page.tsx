@@ -198,9 +198,9 @@ export default function Home() {
           left: 50%;
           width: 0;
           height: 0;
-          border-left: 15px solid transparent;
-          border-right: 15px solid transparent;
-          border-bottom: 25px solid black;
+          border-left: 30px solid transparent;
+          border-right: 30px solid transparent;
+          border-bottom: 50px solid black;
           transform: translate(-50%, -50%);
           transition: transform 0.8s;
         }
@@ -217,8 +217,11 @@ export default function Home() {
           0% {
             transform: scale(1) rotate(0deg);
           }
-          100% {
+          75% {
             transform: scale(1.1) rotate(120000deg);
+          }
+          100% {
+            transform: scale(1) rotate(0deg);
           }
         }
 
