@@ -95,7 +95,7 @@ export default function Home() {
       bellSound.play();
     }else{
        const spaceSound = new Audio("/space.mp3");
-       spaceSound.volume = 0.01;
+       spaceSound.volume = 0.02;
        spaceSound.play();
     }
     // if (randomNum < 0.2) {
