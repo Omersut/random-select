@@ -85,14 +85,18 @@ export default function Home() {
   const playClickSound = () => {
     const randomNum = Math.random(); // 0 ile 1 arasında rastgele bir sayı üretir
 
-    if (randomNum < 0.5) {
+    if (randomNum < 0.3) {
       const spaceSound = new Audio("/432.mp3");
       spaceSound.volume = 0.03;
       spaceSound.play();
-    } else {
+    } else if(randomNum < 0.7) {
       const bellSound = new Audio("/fire.mp3");
       bellSound.volume = 0.03;
       bellSound.play();
+    }else{
+       const spaceSound = new Audio("/space.mp3");
+       spaceSound.volume = 0.01;
+       spaceSound.play();
     }
     // if (randomNum < 0.2) {
     //   const spaceSound = new Audio("/space.mp3");
